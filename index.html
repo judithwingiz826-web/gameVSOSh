@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Odyssey — Олимпиадный тренажёр</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="bg3d"></canvas>
+    <main class="hud">
+      <header>
+        <h1>Math Odyssey</h1>
+        <p>Подготовка к СПб городу, Курчатову, ВСОШ и перечневым олимпиадам (10 класс)</p>
+      </header>
+
+      <section class="panel profile">
+        <h2>Профиль</h2>
+        <label>Имя <input id="studentName" value="Ученик" /></label>
+        <label>Класс
+          <select id="grade">
+            <option>8</option><option>9</option><option selected>10</option><option>11</option>
+          </select>
+        </label>
+        <label>Трек
+          <select id="track"></select>
+        </label>
+        <button id="resetBtn" class="danger">Сбросить прогресс</button>
+      </section>
+
+      <section class="panel theory">
+        <h2>Теория</h2>
+        <select id="topicSelect"></select>
+        <article id="theoryText"></article>
+      </section>
+
+      <section class="panel practice">
+        <h2>Практика</h2>
+        <div id="problemBox"></div>
+        <div class="controls">
+          <input id="answerInput" placeholder="Ответ" />
+          <button id="checkBtn">Проверить</button>
+          <button id="hintBtn">Подсказка</button>
+          <button id="nextBtn">Следующая задача</button>
+        </div>
+        <pre id="feedback"></pre>
+      </section>
+
+      <section class="panel progress">
+        <h2>Прогресс</h2>
+        <ul id="stats"></ul>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
