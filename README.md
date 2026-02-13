@@ -13,8 +13,23 @@
 - `BuildScripts/` — утилиты подготовки проекта.
 - `Docs/` — документация по архитектуре и вертикальному срезу.
 
-## Быстрый запуск
-1. Открыть репозиторий через Unity Hub (версия из `ProjectSettings/ProjectVersion.txt`).
-2. Дождаться импорта пакетов.
-3. Подключить скрипты из каталогов как `Assets/Scripts` (или использовать symlink/UPM local package).
-4. Запустить сцену bootstrap и проверить переходы: Menu → Profile → Hub → Theory → Practice.
+## Быстрый запуск (локальный npm workflow)
+1. Установить зависимости:
+   ```bash
+   npm install
+   ```
+2. Запустить локальный dev-сервер:
+   ```bash
+   npm run dev
+   ```
+3. Открыть URL из консоли (по умолчанию `http://localhost:5173`).
+4. Сборка production-бандла:
+   ```bash
+   npm run build
+   ```
+5. Локальный предпросмотр production-сборки:
+   ```bash
+   npm run preview
+   ```
+
+> Приложение использует локально установленный пакет `three` и запускается без внешних CDN.
