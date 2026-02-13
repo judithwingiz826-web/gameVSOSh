@@ -1,0 +1,60 @@
+name: qa-gates
+
+on:
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: ["main", "master", "develop"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint
+        run: ./scripts/qa/run_lint.sh
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests
+        run: ./scripts/qa/run_unit_tests.sh
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Integration tests
+        run: ./scripts/qa/run_integration_tests.sh
+
+  smoke-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Smoke tests (scenes/menus)
+        run: ./scripts/qa/run_smoke_tests.sh
+
+  save-regression-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Save regression tests
+        run: ./scripts/qa/run_save_regression.sh
+
+  release-content-review-gate:
+    runs-on: ubuntu-latest
+    needs:
+      - lint
+      - unit-tests
+      - integration-tests
+      - smoke-tests
+      - save-regression-tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate required content review gates
+        run: |
+          rg -n '^\s*pedagogical_review:\s*true\s*$' qa/config/release_review_gates.yaml
+          rg -n '^\s*methodological_review:\s*true\s*$' qa/config/release_review_gates.yaml
+          rg -n '^\s*technical_review:\s*true\s*$' qa/config/release_review_gates.yaml
+          echo 'All mandatory review gates are enabled.'

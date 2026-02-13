@@ -1,0 +1,13 @@
+version: 1
+
+smoke_suites:
+  - id: main_menu_navigation
+    checks:
+      - app_starts
+      - main_menu_renders
+      - start_button_opens_topic_select
+  - id: scene_bootstrap
+    checks:
+      - scene_assets_load
+      - first_interactive_node_available
+      - back_to_menu_works

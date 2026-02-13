@@ -1,0 +1,29 @@
+version: 1
+
+policy:
+  description: >-
+    Каждая тема и каждый олимпиадный трек обязаны иметь диагностический набор
+    pretest/posttest для оценки прироста знаний.
+  mandatory: true
+  minimum_questions_per_set: 12
+  scoring:
+    gain_formula: "(posttest_score - pretest_score) / max(pretest_score, 1)"
+    min_expected_gain_percent: 20
+
+tracks:
+  - track_id: algebra_olymp
+    topics:
+      - topic_id: modular_arithmetic
+        pretest_set_id: pre_mod_arith_v1
+        posttest_set_id: post_mod_arith_v1
+      - topic_id: diophantine_equations
+        pretest_set_id: pre_dioph_v1
+        posttest_set_id: post_dioph_v1
+  - track_id: combinatorics_olymp
+    topics:
+      - topic_id: inclusion_exclusion
+        pretest_set_id: pre_incl_excl_v1
+        posttest_set_id: post_incl_excl_v1
+      - topic_id: graph_invariants
+        pretest_set_id: pre_graph_inv_v1
+        posttest_set_id: post_graph_inv_v1

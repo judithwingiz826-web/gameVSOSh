@@ -1,0 +1,12 @@
+version: 1
+
+save_compatibility:
+  strategy: backward_compatible
+  required_versions:
+    - 1.0
+    - 1.1
+    - 1.2
+  checks:
+    - can_load_old_save
+    - can_continue_progress
+    - can_resave_without_data_loss
