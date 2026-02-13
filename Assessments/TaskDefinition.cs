@@ -4,6 +4,8 @@ namespace GameVSOSh.Assessments
         string Id,
         string Prompt,
         string CorrectAnswer,
-        string SkillCode
+        string SkillCode,
+        string SourceTrack,
+        string Subtopic
     );
 }
