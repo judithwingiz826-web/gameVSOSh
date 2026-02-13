@@ -218,6 +218,14 @@ function resetProgress() {
   saveState();
 }
 
+
+function submitFromInput(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    checkAnswer();
+  }
+}
+
 el.track.addEventListener('change', () => {
   state.track = el.track.value;
   rebuildTopics();
@@ -232,6 +240,7 @@ el.check.addEventListener('click', checkAnswer);
 el.hint.addEventListener('click', giveHint);
 el.next.addEventListener('click', nextProblem);
 el.reset.addEventListener('click', resetProgress);
+el.answer.addEventListener('keydown', submitFromInput);
 
 initSelectors();
 renderStats();
