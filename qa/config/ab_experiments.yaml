@@ -1,0 +1,28 @@
+version: 1
+
+experiments:
+  - id: difficulty_adaptation_v1
+    active: true
+    hypothesis: >-
+      Адаптивная подстройка сложности повышает completion rate без ухудшения
+      accuracy per topic.
+    population:
+      split:
+        control: 0.5
+        treatment: 0.5
+      unit: user_id
+    variants:
+      - name: control
+        difficulty_profile: static
+        adaptive_hints: false
+      - name: treatment
+        difficulty_profile: adaptive
+        adaptive_hints: true
+    success_metrics:
+      - completion_rate
+      - accuracy_per_topic
+      - time_to_solve_p50
+    stop_conditions:
+      min_sample_size: 1000
+      max_duration_days: 21
+      early_stop_if_harm_percent: 10
