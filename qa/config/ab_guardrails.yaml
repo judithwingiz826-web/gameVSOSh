@@ -1,0 +1,22 @@
+version: 1
+
+branch_pruning:
+  enabled: true
+  prune_if:
+    - metric: completion_rate
+      comparator: lt
+      threshold_delta_percent: -10
+      against: control
+    - metric: accuracy_per_topic
+      comparator: lt
+      threshold_delta_percent: -7
+      against: control
+    - metric: time_to_solve_p75
+      comparator: gt
+      threshold_delta_percent: 15
+      against: control
+
+release_policy:
+  block_release_if_any_guardrail_violated: true
+  require_statistical_significance: true
+  significance_level: 0.05

@@ -1,0 +1,18 @@
+version: 1
+
+required_gates:
+  pedagogical_review: true
+  methodological_review: true
+  technical_review: true
+
+release_blockers:
+  - gate: pedagogical_review
+    reason: "Контент не прошел педагогическую экспертизу"
+  - gate: methodological_review
+    reason: "Контент не прошел методическую экспертизу"
+  - gate: technical_review
+    reason: "Контент не прошел техническую валидацию"
+
+workflow:
+  require_all_three_before_publish: true
+  allow_override: false
