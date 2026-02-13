@@ -1,15 +1,15 @@
 {
   "topicId": "city01-algebra-intro",
   "tasks": [
-    { "id": "task-01", "prompt": "2x + 3 = 11", "answer": "4", "skill": "linear_eq" },
-    { "id": "task-02", "prompt": "5x - 10 = 0", "answer": "2", "skill": "linear_eq" },
-    { "id": "task-03", "prompt": "x/4 = 3", "answer": "12", "skill": "fraction" },
-    { "id": "task-04", "prompt": "3x + 6 = 0", "answer": "-2", "skill": "negative" },
-    { "id": "task-05", "prompt": "7 + x = 15", "answer": "8", "skill": "basic" },
-    { "id": "task-06", "prompt": "9x = 81", "answer": "9", "skill": "multiplication" },
-    { "id": "task-07", "prompt": "4x - 4 = 20", "answer": "6", "skill": "linear_eq" },
-    { "id": "task-08", "prompt": "x + x = 14", "answer": "7", "skill": "combining_terms" },
-    { "id": "task-09", "prompt": "10 - x = 1", "answer": "9", "skill": "signs" },
-    { "id": "task-10", "prompt": "6x + 12 = 30", "answer": "3", "skill": "linear_eq" }
+    { "id": "task-01", "prompt": "2x + 3 = 11", "answer": "4", "skill": "linear_eq", "sourceTrack": "vosh_track", "subtopic": "basic_linear_equations" },
+    { "id": "task-02", "prompt": "5x - 10 = 0", "answer": "2", "skill": "linear_eq", "sourceTrack": "vosh_track", "subtopic": "basic_linear_equations" },
+    { "id": "task-03", "prompt": "x/4 = 3", "answer": "12", "skill": "fraction", "sourceTrack": "vosh_track", "subtopic": "fractions_in_equations" },
+    { "id": "task-04", "prompt": "3x + 6 = 0", "answer": "-2", "skill": "negative", "sourceTrack": "vosh_track", "subtopic": "sign_handling" },
+    { "id": "task-05", "prompt": "7 + x = 15", "answer": "8", "skill": "basic", "sourceTrack": "vosh_track", "subtopic": "basic_linear_equations" },
+    { "id": "task-06", "prompt": "9x = 81", "answer": "9", "skill": "multiplication", "sourceTrack": "vosh_track", "subtopic": "multiplication_division_equations" },
+    { "id": "task-07", "prompt": "4x - 4 = 20", "answer": "6", "skill": "linear_eq", "sourceTrack": "vosh_track", "subtopic": "basic_linear_equations" },
+    { "id": "task-08", "prompt": "x + x = 14", "answer": "7", "skill": "combining_terms", "sourceTrack": "vosh_track", "subtopic": "combining_like_terms" },
+    { "id": "task-09", "prompt": "10 - x = 1", "answer": "9", "skill": "signs", "sourceTrack": "vosh_track", "subtopic": "sign_handling" },
+    { "id": "task-10", "prompt": "6x + 12 = 30", "answer": "3", "skill": "linear_eq", "sourceTrack": "vosh_track", "subtopic": "basic_linear_equations" }
   ]
 }
