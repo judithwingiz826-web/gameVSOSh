@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Odyssey</title>
+  </head>
+  <body>
+    <main>
+      <h1>Math Odyssey</h1>
+
+      <label for="track">Трек</label>
+      <select id="track">
+        <option value="algebra">Алгебра</option>
+        <option value="geometry">Геометрия</option>
+        <option value="combinatorics">Комбинаторика</option>
+      </select>
+
+      <label for="topic">Тема</label>
+      <select id="topic">
+        <option value="linear_equations">Линейные уравнения</option>
+        <option value="quadratic_equations">Квадратные уравнения</option>
+        <option value="inequalities">Неравенства</option>
+      </select>
+
+      <p id="question"></p>
+      <input id="answer" type="number" placeholder="Ваш ответ" />
+      <button id="check-answer" type="button">Проверить</button>
+      <button id="next-task" type="button">Следующая задача</button>
+      <button id="reset-progress" type="button">Сброс прогресса</button>
+
+      <p id="result"></p>
+      <p id="stats"></p>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
