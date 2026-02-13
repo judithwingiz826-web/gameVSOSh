@@ -1,3 +1,4 @@
+const BUILD_TAG = 'conflict-resolved-html-build';
 const STORAGE_KEY = 'math_odyssey_state_v2';
 const RECENT_WINDOW = 4;
 
@@ -62,6 +63,7 @@ const defaultState = {
 };
 
 const state = loadState();
+window.__MATH_ODYSSEY_BUILD__ = BUILD_TAG;
 
 function loadState() {
   try {
