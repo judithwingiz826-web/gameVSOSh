@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using GameVSOSh.Systems.Save;
 
 namespace GameVSOSh.Assessments
@@ -8,19 +7,22 @@ namespace GameVSOSh.Assessments
         public int CorrectAnswers { get; private set; }
         public int TotalAnswers { get; private set; }
 
-        public void Submit(TaskDefinition task, string answer, PlayerProfile profile)
+        public ValidationResult Submit(TaskDefinition task, string answer, PlayerProfile profile)
         {
             TotalAnswers++;
-            if (answer.Trim() == task.CorrectAnswer)
+
+            var validation = AnswerValidator.Validate(task, answer);
+            if (validation.IsCorrect)
             {
                 CorrectAnswers++;
-                return;
+                return validation;
             }
 
-            RegisterWeakSpot(task.SkillCode, profile);
+            RegisterWeakSpot(task.SkillCode, profile, validation.ErrorMessage);
+            return validation;
         }
 
-        private static void RegisterWeakSpot(string skillCode, PlayerProfile profile)
+        private static void RegisterWeakSpot(string skillCode, PlayerProfile profile, string reason)
         {
             var item = profile.WeakSpots.Find(x => x.SkillCode == skillCode);
             if (item is null)
@@ -29,13 +31,13 @@ namespace GameVSOSh.Assessments
                 {
                     SkillCode = skillCode,
                     MistakeCount = 1,
-                    LastMistakeReason = "Incorrect answer"
+                    LastMistakeReason = reason
                 });
                 return;
             }
 
             item.MistakeCount++;
-            item.LastMistakeReason = "Incorrect answer";
+            item.LastMistakeReason = reason;
         }
     }
 }
